@@ -1,0 +1,23 @@
+#cloud-config
+repo_update: true
+repo_upgrade: all
+
+preserve_hostname: false
+hostname: awx_server
+
+groups:
+  - dl_users
+
+users:
+  - default
+  - name: ansible
+    gecos: Technischer User Ansible
+    ssh_authorized_keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3orbTeYG2leskQvNIVUPB+VS8qym524L1i/xLlVqqOMn/zAuMeu9GoFRePF41K0GWsVwn0JiP8aWhoa9pk8jp3zMNcAhWu/sraBwY8GLCi8XCzqRwwkKbOVCpxpkn7U+LiJ0TWSXzRUrDE4VJHZLOrzDINLCZ+93JpRAR6EUlqJpqbaFGrmbbrVgigMsGBxOps1SCHcaSljRfTi/xf/0euiT5lnLnsqUuuRw4IrYsJ7OypOlezD3i6GQ3z0LfsOtOcYV8wM0BmsM3dPjcTETXwssF9dnhYCVYsAHmGCOpf+DJ6rrrF6tw/UmUyZ963HsAwVtsLpd1z1cA/blLSAEn chknuth@Christians-iMac.fritz.box"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    
+packages:
+  - epel-release
+  - ansible
+  
+package_upgrade: true
