@@ -4,6 +4,7 @@
 #
 # Vorbereitungen
 echo "Vorbereitungen"
+sudo yum -y upgrade
 sudo yum -y install policycoreutils-python
 sudo semanage port -a -t http_port_t -p tcp 8050
 sudo semanage port -a -t http_port_t -p tcp 8051
@@ -96,8 +97,10 @@ sudo -u awx scl enable rh-python36 rh-postgresql10 rh-git29 "GIT_PYTHON_REFRESH=
 sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/MrMEEE/awx-build/master/nginx.conf
 
 # Start Services
+echo "AWX starten"
 sudo systemctl start awx
 
 # Enable Services
+echo "AWX als Service installieren"
 sudo systemctl enable awx
 
