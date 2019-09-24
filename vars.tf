@@ -10,7 +10,7 @@ variable "aws_region" {
 
 variable "instance_type" {
   description = "The instance type for the ansible server"
-  default     = "t2.small"
+  default     = "t2.medium"
 }
 
 # key file für den admin auf dem Ansible server
